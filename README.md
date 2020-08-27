@@ -16,7 +16,7 @@ The JVM.
 (require '[memoize-ttl.memoize-ttl :as ttl])
 
 ;; First we define a function that presumably have some expensive operation 
-;; which result will change over time.
+;; where the result will change over time.
 (defn myfunc [a]
   (println "doing some work on" a)
   {:val (+ a (rand-int 10)) ; what to return is given in :val
