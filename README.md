@@ -32,16 +32,16 @@ The JVM.
 doing some work on 10
 => 19
 
-; Execute it again before 10 seconds has elapsed and the old return value will be used
+;; Execute it again before 10 seconds has elapsed and the old return value will be used
 (cached-myfunc 10) 
 => 19
 
-; Wait ten seconds or more and the function will be invoked again
+;; Wait ten seconds or more and the function will be invoked again
 (cached-myfunc 10)
 doing some work on 10
 => 11
 
-; Caching is done on a per argument basis
+;; Caching is done on a per argument basis
 (cached-myfunc 20)
 doing some work on 20
 => 22
