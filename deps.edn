@@ -1,6 +1,14 @@
-{:paths ["src"]
- :deps  {org.clojure/clojure {:mvn/version "1.10.1"}}
+{:paths   ["src"]
+ :deps    {org.clojure/clojure {:mvn/version "1.10.1"}}
 
- :aliases {:test {:extra-paths ["test"]
-                  :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.669"}}
-                  :main-opts   ["--report" "stderr" "-m" "kaocha.runner"]}}}
+ :aliases {:test   {:extra-paths ["test"]
+                    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.669"}}
+                    :main-opts   ["--report" "stderr" "-m" "kaocha.runner"]}
+
+           :jar    {:extra-deps {pack/pack.alpha {:git/url "https://github.com/juxt/pack.alpha.git"
+                                                  :sha     "e518d9b2b70f4292c9988d2792b8667d88a6f4df"}}
+                    :main-opts  ["-m" "mach.pack.alpha.skinny" "--no-libs" "--project-path" "target/clj_memoize_ttl.jar"]}
+
+           :deploy {:extra-deps {slipset/deps-deploy {:mvn/version "0.0.9"}}
+                    :main-opts  ["-m" "deps-deploy.deps-deploy" "deploy"
+                                 "target/clj_memoize_ttl.jar"]}}}
