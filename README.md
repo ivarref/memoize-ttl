@@ -41,7 +41,8 @@ doing some work on 10
 doing some work on 10
 => 11
 
-;; Caching is done on a per argument basis
+;; Caching is done on a per argument basis, i.e. calling with a new argument
+;; will always produce a new value
 (cached-myfunc 20)
 doing some work on 20
 => 22
