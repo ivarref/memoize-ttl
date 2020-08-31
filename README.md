@@ -21,8 +21,11 @@ The JVM.
 ;; where the result will change over time.
 (defn myfunc [a]
   (println "doing some work on" a)
-  {:val (+ a (rand-int 10)) ; what to return is given in :val
-   :ttl 10})                ; and how many seconds it should be cached
+  ;; the function to be cached must return a map
+  {;; what to return is given in :val
+   :val (+ a (rand-int 10)) 
+   ;; :ttl gives how many seconds :val should be cached   
+   :ttl 10})
 
 ;; Create a cached version of the function
 (def cached-myfunc (ttl/memoize-ttl myfunc))

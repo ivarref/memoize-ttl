@@ -4,6 +4,14 @@
 (defn now-millis []
   (System/currentTimeMillis))
 
+(defn locking-fn
+  "Returns a function that will hold a lock while calling the `f` function."
+  [f]
+  (let [lock (atom {})]
+    (fn [& args]
+      (locking lock
+        (apply f args)))))
+
 (defn memoize-ttl
   "Returns a function that will cache the `f` function.
 
