@@ -4,7 +4,7 @@
   <packaging>jar</packaging>
   <groupId>ivarref</groupId>
   <artifactId>memoize-ttl</artifactId>
-  <version>2020.08.27</version>
+  <version>2020.08.31</version>
   <name>memoize-ttl</name>
   <dependencies>
     <dependency>
