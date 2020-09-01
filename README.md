@@ -51,6 +51,12 @@ doing some work on 20
 => 22
 ```
 
+## Warning
+
+Caching is done per arguments. Expired entries is never removed, only overwritten
+*if* the function is called again with the identical arguments. Thus if you call
+the caching function with different arguments enough times, you may run out of memory.
+
 ## TODO
 
 * Support ClojureScript? Pull requests welcome.
