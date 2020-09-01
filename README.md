@@ -51,6 +51,38 @@ doing some work on 20
 => 22
 ```
 
+## Tip
+
+If you don't want a burst of calls from multiple threads as your initial value is loaded (or is renewed),
+you can wrap the caching function using `ivarref.memoize-ttl/locking-fn`:
+
+```clojure
+(require '[ivarref.memoize-ttl :as ttl])
+
+(defn heavy-work [a]
+  (println "start work on" a)
+  (Thread/sleep 1000) ; heavy work
+  {;; what to return is given in :val
+   :val (+ a (rand-int 10)) 
+   ;; :ttl gives how many seconds :val should be cached   
+   :ttl 10})
+
+(def cached-fn (ttl/locking-fn (ttl/memoize-ttl heavy-work)))
+
+(vec (pmap cached-fn (repeat 5 5)))
+;; start work on 5
+;; => [13 13 13 13 13]
+
+;; without outer lock:
+(vec (pmap (ttl/memoize-ttl heavy-work) (repeat 5 5)))
+;; start work on 5
+;; start work on 5
+;; start work on 5
+;; start work on 5
+;; start work on 5
+;; => [5 11 13 5 13]
+```
+
 ## Warning
 
 Caching is done per arguments. Expired entries is never removed, only overwritten
