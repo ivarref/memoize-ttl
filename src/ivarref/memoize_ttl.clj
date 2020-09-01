@@ -1,5 +1,5 @@
-(ns memoize-ttl.memoize-ttl
-  (:require [memoize-ttl.impl :as impl]))
+(ns ivarref.memoize-ttl
+  (:require [ivarref.memoize-ttl.impl :as impl]))
 
 (defn now-millis []
   (System/currentTimeMillis))

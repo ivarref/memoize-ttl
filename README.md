@@ -6,7 +6,7 @@ A Clojure library that lets you cache function return values for a dynamic numbe
 
 [![Clojars Project](https://img.shields.io/clojars/v/ivarref/memoize-ttl.svg)](https://clojars.org/ivarref/memoize-ttl)
 
-`ivarref/memoize-ttl {:mvn/version "2020.08.31"}`
+`ivarref/memoize-ttl {:mvn/version "2020.09.01"}`
 
 ## Requirements
 
@@ -15,7 +15,7 @@ The JVM.
 ## Example
 
 ```clojure
-(require '[memoize-ttl.memoize-ttl :as ttl])
+(require '[ivarref.memoize-ttl :as ttl])
 
 ;; First we define a function that presumably have some expensive operation 
 ;; where the result will change over time.

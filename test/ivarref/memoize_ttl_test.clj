@@ -1,6 +1,6 @@
-(ns memoize-ttl.memoize-ttl-test
+(ns ivarref.memoize-ttl-test
   (:require [clojure.test :refer :all]
-            [memoize-ttl.impl :as impl]))
+            [ivarref.memoize-ttl.impl :as impl]))
 
 (deftest find-args-test
   (testing "nil values works"

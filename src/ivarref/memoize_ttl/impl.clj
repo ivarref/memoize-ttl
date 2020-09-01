@@ -1,4 +1,4 @@
-(ns memoize-ttl.impl)
+(ns ivarref.memoize-ttl.impl)
 ; private API, subject to change
 
 (defn find-args
